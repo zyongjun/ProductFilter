@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_search_button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etPriceDown"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_toLeftOf="@+id/line"
+            android:background="@drawable/shape_search_condition_item_normal"
+            android:gravity="center"
+            android:hint="最低价"
+            android:maxLength="9"
+            android:inputType="numberSigned"
+            android:maxLines="1"
+            android:textColorHint="#aaaaaa"
+            android:textSize="14sp" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="20dp"
+            android:layout_height="1dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#666666" />
+
+        <EditText
+            android:id="@+id/etPriceUp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@+id/line"
+            android:background="@drawable/shape_search_condition_item_normal"
+            android:gravity="center"
+            android:hint="最高价"
+            android:maxLength="9"
+            android:inputType="numberSigned"
+            android:maxLines="1"
+            android:textColorHint="#aaaaaa"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
