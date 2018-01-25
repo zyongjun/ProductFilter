@@ -51,7 +51,7 @@ public class SearchFilterHeaderView extends LinearLayout {
     private void init(){
         removeAllViews();
         LayoutInflater.from(getContext()).inflate(R.layout.view_product_search_filter_header, this, true);
-        mHeadersGrid = (GridView) findViewById(R.id.gvHeader);
+        mHeadersGrid =  findViewById(R.id.gvHeader);
     }
 
     private String readSearchConditionItem(String type){
@@ -73,10 +73,6 @@ public class SearchFilterHeaderView extends LinearLayout {
         return sb.toString();
     }
 
-//    private ProductSearchView.SearchCallback mSearchCallback;
-//    public void setSearchCallback(ProductSearchView.SearchCallback searchCallback) {
-//        mSearchCallback = searchCallback;
-//    }
     private static final String QUOTE = ",";
     public void filterConfirm() {
         hideKeyboard();
@@ -87,33 +83,10 @@ public class SearchFilterHeaderView extends LinearLayout {
         filterItem.size = readSearchConditionItem(FilterItem.SIZE);
         filterItem.color = readSearchConditionItem(FilterItem.COLOR);
 
-        String priceDown =  mSearchFilterContent.getMarketPriceDown();
-        String priceUp = mSearchFilterContent.getMarketPriceUp();
         int marketPriceDown = 0;
         int marketPriceUp = Integer.MAX_VALUE;
-//        if (!TextUtils.isEmpty(priceDown)) {
-//            if (!ApplicationDelegate.isPositiveNumeric(priceDown)) {
-//                showToast("请输入正确的价格");
-//                return;
-//            } else {
-//                marketPriceDown = Integer.parseInt(priceDown);
-//            }
-//        }
-//        if (!TextUtils.isEmpty(priceUp)) {
-//            if (!ApplicationDelegate.isPositiveNumeric(priceUp)) {
-//                showToast("请输入正确的价格");
-//                return;
-//            } else {
-//                marketPriceUp = Integer.parseInt(priceUp);
-//            }
-//        }
-//        if (marketPriceDown > marketPriceUp) {
-//            showToast("请输入正确的价格");
-//            return;
-//        }
         filterItem.marketPriceDown = marketPriceDown;
         filterItem.marketPriceUp = marketPriceUp;
-//        mSearchCallback.onGuideFilterSearch(filterItem,"12");
         mSearchFilterContent.animate().translationY(-mSearchFilterContent.getHeight())
                 .setDuration(200);
     }
@@ -125,16 +98,12 @@ public class SearchFilterHeaderView extends LinearLayout {
         if (props.contains(item.name)) {
             return true;
         }
-//        if (item.key.equals(FilterItem.SIZE)) {
-//            return props.replace()
-//        }
         return false;
     }
 
     private String style;
     private HashMap<String,List<SearchConditionItem>> mItemsData = new HashMap<>();
     private List<SearchConditionItem> initSearchConditionHeaderList(SearchCondition conditions) {
-//        FilterItem filterItem  = mSearchCallback.getFilterItem();
         style = conditions.style;
         List<SearchConditionItem> items = new ArrayList<>();
         if (conditions.shapes != null && conditions.shapes.length > 0) {
@@ -147,7 +116,6 @@ public class SearchFilterHeaderView extends LinearLayout {
                 SearchConditionItem item = new SearchConditionItem();
                 item.key=FilterItem.SHAPE;
                 item.name=shape;
-//                item.isSelected = filterItem!=null&&checkIfContain(filterItem.shape,item);
                 list.add(item);
             }
             mItemsData.put(FilterItem.SHAPE,list);
@@ -157,14 +125,13 @@ public class SearchFilterHeaderView extends LinearLayout {
             SearchConditionItem seedItem = new SearchConditionItem();
             seedItem.isSelected = false;
             seedItem.key = FilterItem.SEED;
-            seedItem.name = "种分";
+            seedItem.name = "品牌";
             items.add(seedItem);
             List<SearchConditionItem> list = new ArrayList(conditions.seeds.length);
             for (String seed : conditions.seeds) {
                 SearchConditionItem item = new SearchConditionItem();
                 item.key=FilterItem.SEED;
                 item.name=seed;
-//                item.isSelected = filterItem!=null&&checkIfContain(filterItem.seed,item);
                 list.add(item);
             }
             mItemsData.put(FilterItem.SEED,list);
@@ -179,25 +146,9 @@ public class SearchFilterHeaderView extends LinearLayout {
                 SearchConditionItem item = new SearchConditionItem();
                 item.key=FilterItem.COLOR;
                 item.name=size;
-//                item.isSelected = filterItem!=null&&checkIfContain(filterItem.color,item);
                 list.add(item);
             }
             mItemsData.put(FilterItem.COLOR,list);
-        }
-        if (conditions.sizes != null && conditions.sizes.length > 0) {
-            SearchConditionItem sizeItem = new SearchConditionItem();
-            sizeItem.name = "圈口";
-            sizeItem.key = FilterItem.SIZE;
-            items.add(sizeItem);
-            List<SearchConditionItem> list = new ArrayList(conditions.sizes.length);
-            for (String size : conditions.sizes) {
-                SearchConditionItem item = new SearchConditionItem();
-                item.key=FilterItem.SIZE;
-                item.name=size;
-//                item.isSelected = filterItem!=null&&checkIfContain(filterItem.size,item);
-                list.add(item);
-            }
-            mItemsData.put(FilterItem.SIZE,list);
         }
 
         if (conditions.prices != null && conditions.prices.length > 0) {
@@ -259,16 +210,6 @@ public class SearchFilterHeaderView extends LinearLayout {
         });
 
         mHeadersGrid.setAdapter(mAdapter);
-//        FilterItem filterItem = mSearchCallback.getFilterItem();
-//        if (filterItem != null) {
-//            if (filterItem.marketPriceDown > 0 ){
-//                mSearchFilterContent.setMarketPriceDown(String.valueOf(filterItem.marketPriceDown));
-//            }
-//            if( filterItem.marketPriceUp < Integer.MAX_VALUE) {
-//                mSearchFilterContent.setMarketPriceUp(String.valueOf(filterItem.marketPriceUp));
-//            }
-//        }
-
 
         mSearchFilterContent.setSearchFilterCallback(new SearchFilterCallback() {
             @Override
@@ -344,8 +285,8 @@ public class SearchFilterHeaderView extends LinearLayout {
             if (convertView == null) {
                 mHolder = new ViewHolder();
                 convertView = mLayoutInflater.inflate(R.layout.list_item_search_header_filter, parent, false);
-                mHolder.mIconImage = (ImageView) convertView.findViewById(R.id.iv_select);
-                mHolder.mLabelText = (TextView) convertView.findViewById(R.id.tv_condition);
+                mHolder.mIconImage = convertView.findViewById(R.id.iv_select);
+                mHolder.mLabelText = convertView.findViewById(R.id.tv_condition);
                 mHolder.mButtonLayout = convertView.findViewById(R.id.rl_search_button);
                 mHolder.mOutBoarderLayout = convertView.findViewById(R.id.llOutBoarder);
                 convertView.setTag(mHolder);

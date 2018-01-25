@@ -51,19 +51,6 @@ public class SearchFilterContentView extends LinearLayout implements View.OnClic
     private String marketPriceUp;//价格查询上限
     private String marketPriceDown;//价格查询下限
 
-    public void setMarketPriceDown(String marketPriceDown) {
-        this.marketPriceDown = marketPriceDown;
-    }
-    public String getMarketPriceUp() {
-        return marketPriceUp;
-    }
-
-    public void setMarketPriceUp(String marketPriceUp) {
-        this.marketPriceUp = marketPriceUp;
-    }
-    public String getMarketPriceDown() {
-        return marketPriceDown;
-    }
     private List<SearchConditionItem> mSearchConditions;
     private SearchConditionFilterContentAdapter mAdapter;
     public void show(List<SearchConditionItem> items) {
