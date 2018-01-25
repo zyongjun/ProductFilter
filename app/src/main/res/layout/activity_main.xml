@@ -6,13 +6,34 @@
     android:layout_height="match_parent"
     tools:context="com.example.cuihuaadmin.myapplication.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.example.cuihuaadmin.myapplication.widget.SearchFilterContentView
+        android:id="@+id/searchFilterContent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchFilterHeader"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tvSearch"
+        android:layout_width="0px"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:background="#ffffff"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        app:layout_constraintTop_toBottomOf="@+id/tvSearch"
+        android:background="#eeeeee" />
+
+    <com.example.cuihuaadmin.myapplication.widget.SearchFilterHeaderView
+        android:id="@+id/searchFilterHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/line"/>
 
 </android.support.constraint.ConstraintLayout>

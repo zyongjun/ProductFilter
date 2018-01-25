@@ -14,8 +14,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.example.cuihuaadmin.myapplication.SearchConditionFilterContentAdapter;
 import com.example.cuihuaadmin.myapplication.model.FilterItem;
 import com.example.cuihuaadmin.myapplication.R;
 import com.example.cuihuaadmin.myapplication.model.SearchCondition;

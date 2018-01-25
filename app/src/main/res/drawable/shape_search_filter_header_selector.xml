@@ -4,7 +4,7 @@
     <!--android:drawable="@drawable/umeng_update_button_cancel_bg_focused"-->
     <item android:state_selected="true" android:drawable="@drawable/layer_filter_header_selected">
     </item>
-    <item android:color="#00000000">
+    <item android:drawable="@color/translate">
 
     </item>
 </selector>
