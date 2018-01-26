@@ -62,11 +62,7 @@ public class SearchFilterContentView extends LinearLayout implements View.OnClic
         mAdapter.setItemSelectListener(new SearchConditionFilterContentAdapter.ItemSelectListener() {
             @Override
             public void selectItem(String key, String selection, boolean isSelected) {
-//                if(isSelected){//收起
-//
-//                }else{//展开当前项
-//                }
-//                mAdapter.notifyDataSetChanged();
+
             }
         });
         mAdapter.setPriceFillListener(new SearchConditionFilterContentAdapter.PriceFillListener() {

@@ -77,10 +77,8 @@ public class SearchFilterHeaderView extends LinearLayout {
     public void filterConfirm() {
         hideKeyboard();
         FilterItem filterItem = new FilterItem();
-        filterItem.style = style;
         filterItem.shape = readSearchConditionItem(FilterItem.SHAPE);
         filterItem.seed = readSearchConditionItem(FilterItem.SEED);
-        filterItem.size = readSearchConditionItem(FilterItem.SIZE);
         filterItem.color = readSearchConditionItem(FilterItem.COLOR);
 
         int marketPriceDown = 0;
@@ -101,10 +99,8 @@ public class SearchFilterHeaderView extends LinearLayout {
         return false;
     }
 
-    private String style;
     private HashMap<String,List<SearchConditionItem>> mItemsData = new HashMap<>();
     private List<SearchConditionItem> initSearchConditionHeaderList(SearchCondition conditions) {
-        style = conditions.style;
         List<SearchConditionItem> items = new ArrayList<>();
         if (conditions.shapes != null && conditions.shapes.length > 0) {
             SearchConditionItem shapeItem = new SearchConditionItem();

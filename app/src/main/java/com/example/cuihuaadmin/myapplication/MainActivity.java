@@ -3,14 +3,10 @@ package com.example.cuihuaadmin.myapplication;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-
 import com.example.cuihuaadmin.myapplication.model.SearchCondition;
 import com.example.cuihuaadmin.myapplication.widget.SearchFilterContentView;
 import com.example.cuihuaadmin.myapplication.widget.SearchFilterHeaderView;
 import com.google.gson.Gson;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,14 +64,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        try {
-            parser();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        init();
     }
 
     private void init() {
+        Gson gson = new Gson();
+        mSearchCondition = gson.fromJson(JSON,SearchCondition.class);
         if (mSearchCondition != null) {
             mSearchFilterHeaderView.setFilterContentView(mSearchFilterContentView);
             mSearchFilterHeaderView.show(mSearchCondition);
@@ -84,10 +78,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void parser() throws JSONException {
-        JSONObject json = new JSONObject(JSON);
-        Gson gson = new Gson();
-        mSearchCondition = gson.fromJson(JSON,SearchCondition.class);
-        init();
-    }
 }

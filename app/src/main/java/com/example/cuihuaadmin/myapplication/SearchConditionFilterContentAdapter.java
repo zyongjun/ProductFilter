@@ -150,7 +150,7 @@ public class SearchConditionFilterContentAdapter extends BaseAdapter {
                 mHolder.mEtPriceUp.setText(EMPTY_VALUE);
             }
             mHolder.mEtPriceDown.addTextChangedListener(priceDownWatcher);
-            mHolder.mEtPriceUp.addTextChangedListener(priceUpWatcher);
+            mHolder.mEtPriceUp.addTextChangedListener (priceUpWatcher);
         }
         return convertView;
     }

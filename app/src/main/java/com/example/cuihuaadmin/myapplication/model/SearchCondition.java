@@ -6,9 +6,7 @@ package com.example.cuihuaadmin.myapplication.model;
 public class SearchCondition {
     public String[] colors;
     public String[] seeds;
-    public String[] sizes;
     public String[] prices;
     public String style;
-    public String[] inset;
     public String[] shapes;
 }
